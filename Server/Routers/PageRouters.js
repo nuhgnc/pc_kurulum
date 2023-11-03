@@ -39,7 +39,7 @@ let edge_status = () => [
 ];
 
 router.get("/", (req, res, next) => {
-  res.render("ofis/Home", { pages, edge_status });
+  res.render("ofis/Home", { pages, edge_status:edge_status() });
 });
 
 router.get("/edge", (req, res, next) => {
@@ -50,7 +50,9 @@ router.get("/edge", (req, res, next) => {
 
 router.get("/printer", (req, res, next) => {
   si.printer((data) => {
-    res.json(data);
+    const defaultPrinter = data.filter(item => item.default == true) || [{name:'varsayılan yazıcı yok'}]
+
+    res.render('ofis/Home')
   });
 });
 
@@ -88,7 +90,6 @@ router.get('/regedits',(req,res)=>{
             res.json(err)
         }
     })
-   
 })
 
 module.exports = router;
