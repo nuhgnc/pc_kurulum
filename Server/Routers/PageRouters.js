@@ -1,60 +1,13 @@
 const express = require("express");
-const { edge_settings } = require("../Process/Edge_Settings");
 const router = express.Router();
-const si = require("systeminformation");
-const { exec } = require("child_process");
+
 const regedit = require('regedit')
 
-const pages = [
-  {
-    name: "Home",
-    path: "/",
-  },
-  {
-    name: "Edge Ayarları",
-    path: "/Edge",
-  },
-  {
-    name: "ART Office Ayarları",
-    path: "/artoffice",
-  },
-];
 
-let edge_status = () => [
-  {
-    name: "IE Mod",
-    value: edge_settings.IE_mode(),
-    message:
-      edge_settings.IE_mode() == 1
-        ? "Internet Explorer modu aktif"
-        : "Internet Explorer modu aktif değil!",
-    bg_color: "from-green-200 to-green-100",
-  },
-  {
-    name: "Kayılı sayfalar",
-    value: edge_settings.IE_Pages().length,
-    message: `${edge_settings.IE_Pages().toString().replace(/,/g, "<br>")}`,
-    bg_color: "from-green-200 to-green-100",
-  },
-];
 
-router.get("/", (req, res, next) => {
-  res.render("ofis/Home", { pages, edge_status:edge_status() });
-});
 
-router.get("/edge", (req, res, next) => {
-  res.json({
-    value: edge_status(),
-  });
-});
 
-router.get("/printer", (req, res, next) => {
-  si.printer((data) => {
-    const defaultPrinter = data.filter(item => item.default == true) || [{name:'varsayılan yazıcı yok'}]
-
-    res.render('ofis/Home')
-  });
-});
+router.get("/printer", );
 
 router.get("/users", async (req, res, next) => {
   const users = {

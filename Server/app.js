@@ -2,8 +2,9 @@ const   express = require('express'),
         cors = require('cors')
 
 
-
-const   page_routes = require('./Routers/PageRouters');
+const   Home = require('./Routers/Home/homeRoute')
+const   page_routes = require('./Routers/PageRouters')
+       
 
 
 const   app = express();
@@ -13,6 +14,9 @@ const   app = express();
 app.use(cors())
 app.options('*', cors()) // include before other routes
 app.set('view engine', 'ejs')
+app.use(express.static('public'))
+
+app.use(Home)
 app.use(page_routes)
 
 
