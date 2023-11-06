@@ -1,14 +1,12 @@
-const   express = require('express'),
-        cors = require('cors')
+const express = require('express'),
+    cors = require('cors')
 
+const services_status = require('./Process/Services')
 
-const   Home = require('./Routers/Home/homeRoute')
-const   page_routes = require('./Routers/PageRouters')
-       
+const Home = require('./Routers/Home/homeRoute')
+const page_routes = require('./Routers/PageRouters')
 
-
-const   app = express();
-
+const app = express();
 
 //MiddleWares
 app.use(cors())
@@ -20,8 +18,7 @@ app.use(Home)
 app.use(page_routes)
 
 
-
-app.listen(3000,()=>{
+app.listen(3000, () => {
     console.log('server başladı')
 })
 
