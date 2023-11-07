@@ -1,7 +1,7 @@
 const express = require("express");
 const { edge_status } = require("../../Process/Edge");
 const printer_status = require("../../Process/Printer");
-const service_status = require('../../Process/Services')
+const {service_status,servisler} = require('../../Process/Services')
 
 
 const sidebar = [
@@ -58,7 +58,7 @@ const sections = {
     detail:"Çalışması gereken servisler",
     path: "/services",
     style:{
-      bg:'bg-gradient-to-b from-green-200 to-green-100 border-b-4 border-green-600 rounded-lg shadow-xl p-5'
+      bg:'bg-gradient-to-b from-purple-200 to-purple-100 border-b-4 border-purple-600 rounded-lg shadow-xl p-5'
     },
     img:"/assets/service.png"
   }
@@ -72,6 +72,7 @@ exports.Home = async (req, res, next) => {
     edge_status: edge_status(),
     printer_status: await printer_status(),
     service_status: await service_status(),
+    servisler,
     sections
     
   });
