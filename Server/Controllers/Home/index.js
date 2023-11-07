@@ -4,6 +4,21 @@ const printer_status = require("../../Process/Printer");
 const {service_status,servisler} = require('../../Process/Services')
 
 
+const kullanicilar = [
+  {
+    name:'Merkez kullanıcısı',
+    url:'/merkez',
+    icon:'merkez.png'
+  },
+{
+    name:'Mağaza kullanıcısı',
+    url:'/magaza',
+    icon:'magaza.png'
+  }
+]
+
+
+
 const sidebar = [
   {
     name: "Home",
@@ -67,13 +82,17 @@ const sections = {
 
 exports.Home = async (req, res, next) => { 
 
+  const current_page = req.url;
+
   res.render("ofis/Home",{
     pages:sidebar,
     edge_status: edge_status(),
     printer_status: await printer_status(),
     service_status: await service_status(),
     servisler,
-    sections
+    sections,
+    current_page,
+    kullanicilar
     
   });
 };

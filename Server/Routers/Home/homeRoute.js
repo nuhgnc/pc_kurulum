@@ -6,6 +6,9 @@ const HomeController = require('../../Controllers/Home')
 
 
 router.get('/', HomeController.Home);
+router.get('/merkez', (req,res)=> {
+    console.log(req.url)
+})
 
 
 
