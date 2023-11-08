@@ -6,14 +6,14 @@ const {service_status,servisler} = require('../../Process/Services')
 
 const kullanicilar = [
   {
-    name:'Merkez kullanıcısı',
+    name:'Merkez bilgisayarı',
     url:'/merkez',
-    icon:'merkez.png'
+    icon:'fa fa-user fa-fw'
   },
 {
-    name:'Mağaza kullanıcısı',
+    name:'Mağaza bilgisayarı',
     url:'/magaza',
-    icon:'magaza.png'
+    icon:'fa fa-store fa-fw'
   }
 ]
 
@@ -21,24 +21,40 @@ const kullanicilar = [
 
 const sidebar = [
   {
-    name: "Home",
+    name: "Anasayfa",
     path: "/",
-    section_bg:null
+    border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-600',
+    merkez:true,
+    magaza:true
+
   },
   {
     name: "Edge Ayarları",
     path: "/Edge",
-    section_bg:'from-green-200 to-green-100'
+    border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-green-600',
+    merkez:true,
+    magaza:true
   },
   {
     name: "ART Office Ayarları",
     path: "/artoffice",
-    section_bg:'from-blue-500 to-purple-400'
+    border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-red-600',
+    merkez:false,
+    magaza:true
   },
   {
     name: "Yazıcı Ayarları",
     path: "/printer",
-    section_bg:'bg-gradient-to-b from-blue-200 to-blue-100 border-b-4 border-blue-600'
+    border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-blue-600',
+    merkez:true,
+    magaza:true
+  },
+  {
+    name: "Servis Ayarları",
+    path: "/services",
+    border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-600',
+    merkez:true,
+    magaza:true
   }
 ];
 
@@ -83,6 +99,8 @@ const sections = {
 exports.Home = async (req, res, next) => { 
 
   const current_page = req.url;
+  const aktifSiteUrl="";
+  const aktifSiteName = "";
 
   res.render("ofis/Home",{
     pages:sidebar,
@@ -92,7 +110,9 @@ exports.Home = async (req, res, next) => {
     servisler,
     sections,
     current_page,
-    kullanicilar
+    kullanicilar,
+    aktifSiteUrl,
+    aktifSiteName
     
   });
 };
