@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const { exec } = require('child_process');
+const si = require('systeminformation')
 
 const regedit = require('regedit')
 
@@ -14,11 +16,11 @@ router.get("/users", async (req, res, next) => {
     AdminGoupsMember: {},
     CurrentUser: {},
   };
-  await exec(
+   exec(
     'Get-LocalGroupMember -Group "Administrators" | Select Name',
     { shell: "powershell.exe" },
     (error, stdout, stderr) => {
-      let res = stdout.split("\r").splice(3);
+      let res = stdout.split(/\r*\n/).splice(3);
       res = res.slice(0, -3);
       users.AdminGoupsMember = res;
     }

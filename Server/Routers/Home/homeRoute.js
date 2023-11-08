@@ -9,9 +9,7 @@ router.get('/merkez', HomeController.Home);
 
 router.get('/magaza', HomeController.Home);
 
-router.get('/merkez', (req,res)=> {
-    console.log(req.url)
-})
+router.get('/', HomeController.MainHome)
 
 
 
