@@ -8,6 +8,8 @@ const page_routes = require('./Routers/PageRouters')
 
 const app = express();
 
+const port = 3000;
+
 //MiddleWares
 app.use(cors())
 app.options('*', cors()) // include before other routes
@@ -18,7 +20,7 @@ app.use(Home)
 app.use(page_routes)
 
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('server başladı')
 })
 
