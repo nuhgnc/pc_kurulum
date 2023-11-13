@@ -1,0 +1,30 @@
+
+<div class="flex flex-wrap border-b pb-8 ">
+    <% GetRegeditValues.forEach((reg,i) => { %>
+        <div class="w-full md:w-1/2 xl:w-1/4 p-6 flex-1">
+            <!--Metric Card-->
+            <div data-popover-target="popover-default2<%- reg.key %>" type="button" class="<%- sections.Regedits.style.bg %>">
+                <div class="flex flex-row items-center">
+                    <div class="flex-shrink pr-4">
+                        <div class="rounded-full p-5 bg-green-600  "><i><img src="<%- sections.Regedits.img  %>" alt="" srcset=""></i></div>
+                    </div>
+                    <div class="flex-1 text-right md:text-center">
+                        <h5 class="font-bold uppercase text-gray-600"><%- reg.key %></h5>
+                        <h3  class="font-bold text-xl"><%- reg.value %> <span class="text-green-500"><i class=""></i></span></h3>
+                    </div>
+                </div>
+            </div>
+            <!--/Metric Card-->
+        </div>
+        <!-- Popover -->
+        <div data-popover id="popover-default2<%- reg.key %>" role="tooltip" class=" absolute z-10 invisible inline-block w-250 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+            <div class=" px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                <h3 class="font-semibold text-gray-900 dark:text-white">Regedit Yolu</h3>
+            </div>
+            <div class="px-3 py-2">
+                <p><%- reg.path %></p>
+            </div>
+            <div data-popper-arrow></div>
+        </div>
+    <% }) %>
+</div>

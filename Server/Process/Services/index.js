@@ -54,7 +54,7 @@ async function service_status() {
             
         })
 
-        console.log(data)
+       
         
         return data
     } catch (e) {

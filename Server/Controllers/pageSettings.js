@@ -100,6 +100,15 @@ const kullanicilar = [
         bg:'bg-gradient-to-b from-red-200 to-red-100 border-b-4 border-red-600 rounded-lg shadow-xl p-5'
       },
       img:"/assets/member.png"
+    },
+    Regedits:{
+      name: "Regeditler",
+      detail:"Kayıt defteri verileri",
+      path: "/regedit",
+      style:{
+        bg:'bg-gradient-to-b from-blue-400 to-blue-300 border-b-4 border-blue-600 rounded-lg shadow-xl p-5'
+      },
+      img:"/assets/regedit2.png"
     }
   
   }
