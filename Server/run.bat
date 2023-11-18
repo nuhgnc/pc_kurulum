@@ -1,1 +1,1 @@
-node D:\nuh\Kodlama\pc_kurulum\Server\app.js
+node .\app.js
