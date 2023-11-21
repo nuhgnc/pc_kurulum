@@ -6,21 +6,11 @@
             
            <% pages.forEach(page => { %>
             
-                <% if (('/merkez' == current_page) && page.merkez ) { %>
-                    <li class="mr-3 flex-1 mt-6">
-                        <a href="<%- page.path %>" class="<%- page.border_color %>">
-                            <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block"><%- page.name %></span>
-                        </a>
-                    </li>
-                <% } %>
-                <% if (('/magaza' == current_page) && page.magaza) { %>
-                    <li class="mr-3 flex-1 mt-6">
-                        <a href="<%- page.path %>" class="<%- page.border_color %>">
-                            <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block"><%- page.name %></span>
-                        </a>
-                    </li>
-                <% } %>
-
+                <li class="mr-3 flex-1 mt-6">
+                    <a href="<%- page.path %>" class="<%- page.border_color %>">
+                        <i class="<%- page.icon %> pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block"><%- page.name %></span>
+                    </a>
+                </li>
             
            <% }) %>
             

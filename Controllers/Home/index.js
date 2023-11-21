@@ -16,7 +16,7 @@ exports.Home = async (req, res, next) => {
   const aktifSiteUrl="";
   const aktifSiteName = "";
 
-  res.render("Home",{
+  res.render("Pages/Genel",{
     pages:sidebar,
     edge_status: edge_status(),
     printer_status: await printer_status(),
@@ -52,7 +52,5 @@ router.get('/gp', async (req,res)  =>  {
   const group_members= await GetAdminGroupMembers()
   res.json(group_members)
 })
-
-
 
 

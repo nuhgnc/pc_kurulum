@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../Partials/_Header') %>
+
+
+<body class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
+
+    <!--Nav-->
+    <%- include('../Partials/_Navbar') %>
+
+
+    <div class="flex flex-col md:flex-row">
+
+        <%- include('../Partials/_Sidebar') %>
+
+        <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5  ">
+
+            <div class="bg-gray-800 pt-3">
+                <div class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
+                    <h3 class="font-bold pl-2">Yazıcılar</h3>
+                </div>
+            </div>
+
+            <div class="flex flex-row flex-wrap flex-grow mt-2 ml-5 ">
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg  ">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Yazıcı adı
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Açıklama
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Varsayılan
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    <span class="sr-only">Kaldır</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% printer_status.forEach(element => { %>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <%- element.name %>
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        <%- element.model %>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <%- (element.default) ? 'VARSAYILAN' : null %>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <a href="/api/removePrinter/<%- element.id %>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Kaldır</a>
+                                    </td>
+                                </tr>
+                            <% }) %>
+
+                           
+                            
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class=" flex flex-grow relative overflow-x-auto shadow-md sm:rounded-lg ml-20 mr-10">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Yazıcı adı
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Açıklama
+                                </th>
+                                
+                                <th scope="col" class="px-6 py-3">
+                                    <span class="sr-only">Yükle</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% newPrinters.forEach(element => { %>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <%- element.name %>
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        <%- element.url %>
+                                    </td>
+                                    
+                                    <td class="px-6 py-4 text-right">
+                                        <a href="/api/addPrinter/<%- element.id %>" class="font-medium text-green-600 dark:text-green-500 hover:underline">Yükle</a>
+                                    </td>
+                                </tr>
+                            <% }) %>
+
+                           
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+    </div>
+
+
+
+
+    <%- include('../Partials/_Footer') %>

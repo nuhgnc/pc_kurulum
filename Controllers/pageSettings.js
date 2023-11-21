@@ -20,11 +20,12 @@ const kullanicilar = [
   
   const sidebar = [
     {
-      name: "Anasayfa",
-      path: "/",
+      name: "Genel Bakış",
+      path: "/merkez",
       border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-600',
       merkez:true,
-      magaza:true
+      magaza:true,
+      icon:"fa fa-eye"
   
     },
     {
@@ -32,28 +33,32 @@ const kullanicilar = [
       path: "/Edge",
       border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-green-600',
       merkez:true,
-      magaza:true
+      magaza:true,
+      icon: "fa fa-internet-explorer"
     },
     {
       name: "ART Office Ayarları",
       path: "/artoffice",
       border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-red-600',
       merkez:false,
-      magaza:true
+      magaza:true,
+      icon:"fa fa-briefcase"
     },
     {
       name: "Yazıcı Ayarları",
       path: "/printer",
       border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-blue-600',
       merkez:true,
-      magaza:true
+      magaza:true,
+      icon:"fa fa-print"
     },
     {
       name: "Servis Ayarları",
       path: "/services",
       border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-600',
       merkez:true,
-      magaza:true
+      magaza:true,
+      icon:"fa fa-cog"
     }
   ];
   
