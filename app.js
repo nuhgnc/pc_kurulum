@@ -2,7 +2,7 @@ const express = require('express'),
 fs = require('fs')
 
 
-const Home = require('./Routers/Home/homeRoute')
+const Home = require('./Routers/HomeRoute')
 const printer_routes = require('./Routers/PrinterRoutes')
 
 const app = express();

@@ -1,7 +1,7 @@
 const util = require("node:util");
 const exec = util.promisify(require("node:child_process").exec);
-const printer_status = require("../../Process/Printer");
-const { kullanicilar, sidebar } = require('../pageSettings');
+const printer_status = require("../Process/Printer");
+const { kullanicilar, sidebar } = require('./pageSettings');
 
 
 const newPrinters = [

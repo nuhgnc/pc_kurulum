@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 
-const {API_ADD_Printer,PrinterPage,API_REMOVE_Printer} = require('../../Controllers/Printer/index')
+const {API_ADD_Printer,PrinterPage,API_REMOVE_Printer} = require('../Controllers/PrinterControllers')
 
 
 router.get('/printer', PrinterPage);

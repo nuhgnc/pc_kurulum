@@ -6,12 +6,12 @@ const kullanicilar = [
       },
     {
       name:'Merkez bilgisayarı',
-      url:'/merkez',
+      url:'/genel',
       icon:'fa fa-user fa-fw'
     },
   {
       name:'Mağaza bilgisayarı',
-      url:'/magaza',
+      url:'/genel',
       icon:'fa fa-store fa-fw'
     }
   ]

@@ -1,11 +1,11 @@
 
-const { edge_status } = require("../../Process/Edge");
-const printer_status = require("../../Process/Printer");
-const {service_status,servisler} = require('../../Process/Services')
-const {GetAdminGroupMembers} = require('../../Process/GroupMembers')
-const {kullanicilar,sections,sidebar} = require('../pageSettings');
-const {GetRegeditStatus} = require('../../Process/Regedit')
-const router = require("../../Routers/PageRouters");
+const { edge_status } = require("../Process/Edge");
+const printer_status = require("../Process/Printer");
+const {service_status,servisler} = require('../Process/Services')
+const {GetAdminGroupMembers} = require('../Process/GroupMembers')
+const {kullanicilar,sections,sidebar} = require('./pageSettings');
+const {GetRegeditStatus} = require('../Process/Regedit')
+
 
 
 
@@ -39,7 +39,6 @@ exports.MainHome = async (req,res)=> {
   const aktifSiteUrl="";
   const aktifSiteName = "";
   res.render('Home',{
-    group_members: await GetAdminGroupMembers(),
     pages:sidebar,
     current_page,
     kullanicilar,
@@ -47,10 +46,5 @@ exports.MainHome = async (req,res)=> {
     aktifSiteName
   })
 }
-
-router.get('/gp', async (req,res)  =>  {
-  const group_members= await GetAdminGroupMembers()
-  res.json(group_members)
-})
 
 
