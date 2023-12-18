@@ -18,47 +18,53 @@
 
             <div class="bg-gray-800 pt-3">
                 <div class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
-                    <h3 class="font-bold pl-2">Yazıcılar</h3>
+                    <h3 class="font-bold pl-2">Servisler</h3>
                 </div>
             </div>
 
-            <div class="flex flex-row flex-wrap flex-grow mt-2 ml-5 ">
+            <div class="flex-1 flex-row flex-wrap flex-grow mt-2 ml-5 mr-5 ">
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg  ">
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
-                                    Yazıcı adı
+                                    Servis adı
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Açıklama
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Varsayılan
+                                    Lokasyon
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    <span class="sr-only">Kaldır</span>
+                                <th scope="col" class="justify-self-end text-right pr-[10%]">
+                                    <span >İşlemler</span>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <% printer_status.forEach(element => { %>
+                           <% services.forEach(service => { %>
+                            
+                          
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <%- element.name %>
+                                        <%- service.name %>
                                     </th>
                                     <td class="px-6 py-4">
-                                        <%- element.model %>
+                                        <%- service.mem %>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <%- (element.default) ? 'VARSAYILAN' : null %>
+                                        <i class="<%- (service.pids.merkez) ? "fa fa-user fa-fw" : null  %>"></i> 
+                                       <i class=" <%- (service.pids.ofis) ? "fa fa-store fa-fw"  : null  %>"></i>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="/api/removePrinter/<%- element.id %>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Kaldır</a>
+                                        <button type="button" class="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Yeniden başlat</button>
+                                        <button type="button" class="px-3 py-2 text-xs font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Başlat</button>
+                                        <button type="button" class="px-3 py-2 text-xs font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Durdur</button>
                                     </td>
+                                    
                                 </tr>
-                            <% }) %>
+                                <% }) %>
 
                            
                             
@@ -66,47 +72,10 @@
                     </table>
                 </div>
                 
-                <div class=" flex flex-grow relative overflow-x-auto shadow-md sm:rounded-lg ml-20 mr-10">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    Yazıcı adı
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Açıklama
-                                </th>
-                                
-                                <th scope="col" class="px-6 py-3">
-                                    <span class="sr-only">Yükle</span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <% newPrinters.forEach(element => { %>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <%- element.name %>
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        <%- element.url %>
-                                    </td>
-                                    
-                                    <td class="px-6 py-4 text-right">
-                                        <a href="/api/addPrinter/<%- element.id %>" class="font-medium text-green-600 dark:text-green-500 hover:underline">Yükle</a>
-                                    </td>
-                                </tr>
-                            <% }) %>
-
-                           
-                            
-                        </tbody>
-                    </table>
-                </div>
             </div>
 
-            
+            <%- services[1].name %>
+            <%- services[1].mem %>
 
             
         </div>

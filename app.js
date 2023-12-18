@@ -4,6 +4,7 @@ fs = require('fs')
 
 const Home = require('./Routers/HomeRoute')
 const printer_routes = require('./Routers/PrinterRoutes')
+const Service_routes = require('./Routers/ServiceRoute')
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.static('public'))
 
 app.use(Home)
 app.use(printer_routes)
+app.use(Service_routes)
 
 
 

@@ -21,7 +21,7 @@ const kullanicilar = [
   const sidebar = [
     {
       name: "Genel Bakış",
-      path: "/merkez",
+      path: "/genel",
       border_color:'block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-600',
       merkez:true,
       magaza:true,
